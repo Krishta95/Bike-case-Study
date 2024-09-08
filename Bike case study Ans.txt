@@ -1,0 +1,116 @@
+Assignment-based Subjective Questions-
+
+1. From your analysis of the categorical variables from the dataset, what could you infer about
+their effect on the dependent variable? 
+Ans1.
+#### Certain Analysis.
+1. Season Analysis- Fall have the Highest rental demand in cnt whereas spring season have less demand.
+2. Year Analysis- 2019 yr have high avg demand of rental bike , approx increase of 2000 rental in median cas compared to 2018.
+3. Month wise demand - sept month have high demand rentals followed by oct & August, also by seeing the pattern it is cleary seen that the demand of rental is depend upon the season.
+4. holiday or weekend have less demand as compared to working day and holiday show a larger distribution or greater varibility.
+5. weekday- The avg demand of rentals bike is same throught all weekday and trend show higher variability in sat or wenesday.
+6. Weathersit- it clearly see from the trend that the avg demand rental is less when the Weather is not good.
+
+2.Why is it important to use drop_first=True during dummy variable creation? 
+Ans2.To Prevent from the mulicollinearity in Model.
+
+3.Looking at the pair-plot among the numerical variables, which one has the highest correlation
+with the target variable?
+Ans3.So here target variable is Cnt and the Highest correlation With cnt is seen by temp Followed by year.
+
+4.How did you validate the assumptions of Linear Regression after building the model on the
+training set?
+Ans.4 
+1)Checking VIF- Variance Inflation Factor or VIF, gives a basic quantitative idea about how much the feature variables are correlated with each other. It is an extremely important parameter to test our linear model.
+2)REF- from data it has been seen some variables have very high VIF values and high p_value so its better to use RFE recursive feature elimination to decide the best variables 
+
+5.Based on the final model, which are the top 3 features contributing significantly towards
+explaining the demand of the shared bikes?
+
+1.)Year - Coef- 0.2358
+      Interpetation- A unit increase  in temp varible increase the bike hire numbers by 0.2358 units.
+
+2.)light_thunderstorm-Coef- (-0.2964)
+      Interpetation- A unit increase  in temp varible decrease the bike hire numbers by 0.2964 units.
+3.)atemp- Coef- 0.4178
+      Interpetation- A unit increase  in temp varible increase the bike hire numbers by 0.4178 units.
+   
+Recommendation-
+-Year(yr)-The trends how the demand of bike increase W.r.t Year.
+-Temperature(atemp)-Positive impact of temp on bike bookings and plan activities Accordingly.
+-Thunderstorm(light_thunderstorm)- Because of bad weather it have negative impact on bike bookings.
+
+General Subjective Questions-
+
+1. . Explain the linear regression algorithm in detail?
+Ans1.Linear regression is a supervised learning algorithm used for predicting the value of a continuous output
+ variable based on one or more input features.The goal of linear regression is to learn a linear relationship 
+between the input features and the output variable.
+
+The linear regression model can be mathematically represented as:
+
+y = β0 + β1 * x + ε
+
+where:
+
+y is the output variable (target variable)
+x is the input feature (predictor variable)
+β0 is the intercept or constant term
+β1 is the slope coefficient
+ε is the error term, which represents the random variation in the data that is not explained by the linear relationship
+
+Linear Regression Algorithm Steps
+The linear regression algorithm involves the following steps:
+
+Data Preparation: Collect and preprocess the data, including feature scaling and encoding categorical variables.
+Model Formulation: Formulate the linear regression model by specifying the input features and the output variable.
+Parameter Estimation: Estimate the model parameters (β0 and β1) using a method such as ordinary least squares (OLS) or maximum likelihood estimation (MLE).
+Model Evaluation: Evaluate the performance of the model using metrics such as mean squared error (MSE), mean absolute error (MAE), and R-squared.
+Model Deployment: Deploy the model in a production environment, where it can be used to make predictions on new, unseen data.
+
+2.Explain the Anscombe’s quartet in detail.
+
+3.What is Pearson’s R?
+Ans.3- Pearson's R, also known as the Pearson correlation coefficient, is a statistical measure that quantifies the strength
+ and direction of the linear relationship between two continuous variables, X and Y. It is a widely used metric in data analysis 
+and machine learning to evaluate the correlation between two variables.
+
+Interpretation
+The Pearson correlation coefficient (R) ranges from -1 to 1, where:
+
+R = 1: Perfect positive linear correlation (as X increases, Y increases)
+R = -1: Perfect negative linear correlation (as X increases, Y decreases)
+R = 0: No linear correlation (X and Y are independent)
+The absolute value of R (|R|) indicates the strength of the correlation:
+
+|R| = 0 to 0.3: Weak correlation
+|R| = 0.3 to 0.7: Moderate correlation
+|R| = 0.7 to 1: Strong correlation
+Assumptions-:
+For Pearson's R to be applicable, certain assumptions must be met:
+
+Linearity: The relationship between X and Y should be linear.
+Independence: Each data point should be independent of the others.
+Homoscedasticity: The variance of Y should be constant across all levels of X.
+Normality: X and Y should be normally distributed
+
+
+4.You might have observed that sometimes the value of VIF is infinite. Why does this happen?
+Ans.4)The value of VIF (Variance Inflation Factor) can become infinite when the correlation between a predictor variable and the other predictor variables in the model is perfect, i.e., when the predictor variable is a linear combination of the other predictor variables.
+In this case, the variance of the estimated regression coefficient for that predictor variable becomes zero, and the VIF becomes infinite. This indicates that the predictor variable is redundant and does not provide any additional information to the model.
+When the VIF is infinite, it means that the predictor variable is perfectly collinear with the other predictor variables, and it cannot be included in the model. In such cases, the predictor variable should be removed from the model or transformed to reduce the correlation with the other predictor variables.
+It's important to note that a high VIF value (but not infinite) indicates that the predictor variable is highly correlated with the other predictor variables, which can lead to unstable estimates of the regression coefficients and poor model performance. Therefore, it's important to check for multicollinearity and take appropriate actions to address it.
+
+
+5.What is a Q-Q plot? Explain the use and importance of a Q-Q plot in linear regression?
+Ans.5)
+A Q-Q plot, also known as a quantile-quantile plot, is a graphical tool used to compare two sets of data. It is commonly used in linear regression analysis to assess the normality of residuals and to identify potential outliers.
+In a Q-Q plot, the quantiles of one dataset are plotted against the quantiles of another dataset. The resulting plot should form a straight line if the two datasets have similar distributions. If the plot deviates from a straight line, it may indicate that the datasets have different distributions or that there are outliers present.
+The use and importance of a Q-Q plot in linear regression can be summarized as follows:
+Normality of residuals: A Q-Q plot can help determine whether the residuals of a linear regression model follow a normal distribution. This is important because many statistical tests assume normality of residuals. If the residuals do not follow a normal distribution, alternative methods may need to be used.
+Outlier detection: A Q-Q plot can help identify potential outliers in the data. Outliers can have a significant impact on the results of a linear regression analysis, so it is important to identify and handle them appropriately.
+Model validation: A Q-Q plot can be used to validate the assumptions of a linear regression model. If the residuals do not follow a normal distribution or if there are outliers present, it may indicate that the model is not appropriate for the data.
+Overall, a Q-Q plot is a useful tool for assessing the normality of residuals and identifying potential outliers in linear regression analysis. It can help ensure that the assumptions of the model are met and that the results are valid and reliable.
+
+
+
